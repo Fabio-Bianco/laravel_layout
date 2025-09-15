@@ -1,0 +1,69 @@
+/* Bootstrap via SCSS (puoi mettere override variabili prima di questa riga) */
+@use "bootstrap/scss/bootstrap";
+
+/* Sfondo generale celestino pastello e testo grigio scuro */
+body {
+  font-family: 'Nunito', system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background: #e0f2fe; // celestino pastello
+  color: #374151;      // grigio scuro
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+/* Card con sfondo rosa/lilla pastello e bordo rosso tenue */
+.card {
+  background: #fbeff5 !important;   // rosa/lilla pastello
+  border: 2px solid #f472b6 !important; // rosa Laravel
+  border-radius: 1.25rem;
+  box-shadow: 0 4px 24px rgba(244,114,182,0.08);
+  color: #374151 !important;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  transition: box-shadow 0.2s;
+}
+.card:hover {
+  box-shadow: 0 8px 32px rgba(244,114,182,0.18);
+}
+.card .card-title, .card .h5 {
+  color: #e53e3e !important; // rosso Laravel
+}
+.card .card-text {
+  color: #374151 !important;
+  font-size: 1.1rem;
+}
+
+/* Pulsanti con colori pastello e accento rosso Laravel */
+.btn, .btn-primary {
+  background: #f472b6;
+  color: #fff;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.75rem 2rem;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+.btn:hover, .btn-primary:hover {
+  background: #e53e3e;
+  color: #fff;
+}
+
+/* Navbar chiara con accenti rosso Laravel */
+.navbar {
+  background: #fbeff5 !important;
+  border-bottom: 3px solid #f472b6;
+}
+.navbar .navbar-brand, .navbar .nav-link {
+  color: #e53e3e !important;
+  font-weight: bold;
+}
+
+/* Link */
+a {
+  color: #f472b6;
+  text-decoration: underline;
+}
+a:hover {
+  color: #e53e3e;
+  text-decoration: none;
+}
+
