@@ -1,14 +1,25 @@
-<div class="card custom-card h-100">
-    <div class="card-body">
-        <img src="{{ asset('img/tiramisu.jpg') }}" alt="immagine card" class="card-img-top">
+@props([
+  'titolo' => null,
+  'sottotitolo' => null,
+  'img' => null,
+])
 
-        <h3 class="h5 mb-1">{{ $titolo ?? '' }}</h3>
-        @if(!empty($sottotitolo))
-            <h4 class="h6 text-muted mb-3">{{ $sottotitolo }}</h4>
-        @endif
+<div {{ $attributes->merge(['class' => 'card h-100 shadow-sm']) }}>
+    @if($img)
+      <img class="card-img-top" src="{{ asset($img) }}" alt="{{ $titolo ?? 'Card image' }}">
+    @endif
+
+    <div class="card-body">
+        @isset($titolo)
+          <h5 class="card-title mb-1">{{ $titolo }}</h5>
+        @endisset
+
+        @isset($sottotitolo)
+          <h6 class="card-subtitle text-secondary mb-3">{{ $sottotitolo }}</h6>
+        @endisset
 
         <div class="card-text">
-            {{ $slot }}
+          {{ $slot }}
         </div>
     </div>
 </div>

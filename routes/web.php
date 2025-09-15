@@ -2,31 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
+Route::view('/', 'home')->name('home');
+Route::view('/homepage', 'home')->name('homepage');
 
-// Rotta per la homepage, restituisce la vista 'home'
-Route::get('/homepage', function () {
-    return view('home');
-})->name('homepage');
+Route::view('/about', 'about')->name('about');
+Route::view('/contact', 'contact')->name('contact');
 
-
-// Rotta per la pagina "about", restituisce la vista 'about'
-Route::get('/about', function () {
-    return view('about');
-})->name('about');
-
-
-// Rotta per la pagina di contatto, restituisce la vista 'contact'
-Route::get('/contact', function (){
-    return view('contact');
-})->name('contact');
-
-
-// Rotta per la pagina di benvenuto
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
-
-
-
-
-
+// pagina di benvenuto (se la vuoi separata)
+Route::view('/welcome', 'welcome')->name('welcome');
