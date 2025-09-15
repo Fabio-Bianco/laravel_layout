@@ -21,6 +21,12 @@ Route::get('/contact', function (){
 })->name('contact');
 
 
+// Rotta per la pagina di benvenuto
+Route::get('/', function () {
+    return view('welcome');
+})->name('welcome');
+
+
 
 
 
