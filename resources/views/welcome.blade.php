@@ -8,7 +8,7 @@
     <div class="d-flex justify-content-center align-items-center" style="min-height: 60vh;">
         <div class="text-center">
             <h1 class="title">
-                Benvenuto nel mio primo blog crerato con Laravel
+                WELCOME TO LARAVEL'S FOOD BLOG
             </h1>
             <div class="mt-4">
                 <a href="{{ route('homepage') }}" class="btn btn-primary mx-2">Home</a>

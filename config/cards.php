@@ -32,5 +32,11 @@ return [
             'img' => 'img/risotto.jpg',
             'testo' => "Un primo raffinato dal colore dorato e dal sapore unico.",
         ],
+        [
+            'titolo' => 'Bruschetta al Pomodoro',
+            'sottotitolo' => 'Un antipasto fresco e saporito',
+            'img' => 'img/bruschetta.jpg',
+            'testo' => "Pane tostato con pomodori freschi, basilico e olio d'oliva.",
+        ],
     ],
 ];
