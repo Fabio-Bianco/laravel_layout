@@ -26,9 +26,7 @@
     <div class="row justify-content-center">
       <div class="col-md-8">
         <x-card :titolo="'Homepage'" :sottotitolo="'Benvenuto nella Home'">
-          <p class="card-text">
-            Questa è la homepage del sito.
-          </p>
+       
           <a href="{{ route('welcome') }}" class="btn btn-outline-primary mt-3">
             Torna alla pagina di benvenuto
           </a>
