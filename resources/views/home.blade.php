@@ -1,59 +1,80 @@
 @extends('layouts.master')
 
-@section('title', 'Home')
-
-@php
-  $cards = config('cards.cards', []);
-@endphp
+@section('title', 'Homepage')
 
 @section('content')
-  <h1 class="h3 mb-4">WELCOME TO LARAVEL'S FOOD BLOG</h1>
+  <div class="container py-4">
+    <h1 class="h3 mb-4">Fumetti</h1>
 
+    <div class="row g-3">
+      @forelse ($comics as $index => $comic)
+        @php
+          $id = 'details-'.$index; // id univoco per il collapse
+        @endphp
 
-  <x-jumbotron />
+        <div class="col-12 col-sm-6 col-lg-4">
+          <article class="card h-100 shadow-sm">
+            <div class="card-body d-flex flex-column">
+              {{-- Titolo sempre visibile --}}
+              <h3 class="h6 mb-3">{{ $comic['title'] ?? 'Senza titolo' }}</h3>
 
-  {{-- Card dinamiche da config/cards.php --}}
- @if (!empty($cards))
-  <section class="py-4">
-    <div class="container">
-      <div class="row align-items-center mb-4">
-        <div class="col-md-8">
-          <h2 class="subtitle h4 mb-0">Scopri le nostre ricette</h2>
+              {{-- Contenuto collassabile: dentro la stessa card --}}
+              <div id="{{ $id }}" class="collapse">
+                @if (!empty($comic['thumb']))
+                  <img
+                    src="{{ $comic['thumb'] }}"
+                    alt="{{ $comic['title'] ?? 'Cover' }}"
+                    class="img-fluid rounded mb-3"
+                    loading="lazy">
+                @endif
+
+                @if (!empty($comic['description']))
+                  <p class="mb-2">{{ $comic['description'] }}</p>
+                @endif
+
+                <ul class="list-unstyled small mb-0">
+                  @if (!empty($comic['price']))
+                    <li><strong>Price:</strong> {{ $comic['price'] }}</li>
+                  @endif
+                  @if (!empty($comic['series']))
+                    <li><strong>Series:</strong> {{ $comic['series'] }}</li>
+                  @endif
+                  @if (!empty($comic['type']))
+                    <li><strong>Type:</strong> {{ $comic['type'] }}</li>
+                  @endif
+                  @if (!empty($comic['sale_date']))
+                    <li><strong>Sale date:</strong> {{ $comic['sale_date'] }}</li>
+                  @endif
+                </ul>
+              </div>
+
+              {{-- Spacer per spingere il footer in basso nella card --}}
+              <div class="flex-grow-1"></div>
+            </div>
+
+            {{-- Footer con il bottone in fondo alla card --}}
+            <div class="card-footer bg-white border-0 pt-0">
+              <div class="d-grid">
+                <button
+                  class="btn btn-outline-primary btn-sm toggle-details"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#{{ $id }}"
+                  aria-expanded="false"
+                  aria-controls="{{ $id }}"
+                  data-text-open="Nascondi dettagli"
+                  data-text-closed="Dettagli">
+                  Dettagli
+                </button>
+              </div>
+            </div>
+          </article>
         </div>
-        <div class="col-md-4 text-md-end pt-3 pt-md-0">
-          <a href="{{ route('welcome') }}" class="btn btn-outline-primary btn-sm">
-            Torna alla pagina di benvenuto
-          </a>
+      @empty
+        <div class="col-12">
+          <p class="text-muted">Nessun fumetto disponibile.</p>
         </div>
-      </div>
-
-      <div class="row g-3 mt-4">
-        @foreach ($cards as $card)
-          <div class="col-12 col-sm-6 col-lg-4">
-            <x-card
-              :titolo="$card['titolo']"
-              :sottotitolo="$card['sottotitolo']"
-              :img="$card['img']"
-            >
-              <p class="mb-2">{{ $card['testo'] }}</p>
-
-              {{-- Se in futuro aggiungi link nella config, li gestisci così: --}}
-              @isset($card['link'])
-                @php
-                  $href = $card['link']['route'] ?? null
-                    ? route($card['link']['route'])
-                    : url($card['link']['url'] ?? '#');
-                  $label = $card['link']['label'] ?? 'Scopri';
-                @endphp
-                <a href="{{ $href }}" class="btn btn-primary btn-sm">{{ $label }}</a>
-              @endisset
-            </x-card>
-          </div>
-        @endforeach
-      </div>
+      @endforelse
     </div>
-  </section>
-@endif
-
-
+  </div>
 @endsection

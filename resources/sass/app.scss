@@ -1,3 +1,7 @@
+@import url('https://fonts.bunny.net/css?family=Nunito');
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
 /* Bootstrap via SCSS (puoi mettere override variabili prima di questa riga) */
 @use "bootstrap/scss/bootstrap";
 
@@ -30,6 +34,16 @@ body {
 .card .card-text {
   color: #374151 !important;
   font-size: 1.1rem;
+}
+
+.comic-card img {
+  object-fit: cover;
+}
+
+.card .btn.toggle-details {
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: .3px;
 }
 
 /* Pulsanti con colori pastello e accento rosso Laravel */
