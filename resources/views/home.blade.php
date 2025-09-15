@@ -16,7 +16,7 @@
  @if (!empty($cards))
   <section class="py-4">
     <div class="container">
-      <div class="row align-items-center mb-2">
+      <div class="row align-items-center mb-4">
         <div class="col-md-8">
           <h2 class="subtitle h4 mb-0">Scopri le nostre ricette</h2>
         </div>
@@ -27,7 +27,7 @@
         </div>
       </div>
 
-      <div class="row g-3">
+      <div class="row g-3 mt-4">
         @foreach ($cards as $card)
           <div class="col-12 col-sm-6 col-lg-4">
             <x-card
