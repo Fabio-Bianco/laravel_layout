@@ -25,6 +25,9 @@
                             <li><a href="#">LinkedIn</a></li>
                         </ul>
                     </p>
+                    <a href="{{ route('homepage') }}" class="btn btn-outline-secondary mt-3">
+                        Torna alla Home page
+                    </a>
                 </x-card>
             </div>
         </div>

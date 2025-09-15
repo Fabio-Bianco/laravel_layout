@@ -27,6 +27,9 @@
                         <br>
                         Fondata nel 2024, la nostra azienda si impegna ogni giorno per offrire il meglio ai nostri clienti.
                     </p>
+                    <a href="{{ route('homepage') }}" class="btn btn-outline-secondary mt-3">
+                        Torna alla Home page
+                    </a>
                 </x-card>
             </div>
         </div>
